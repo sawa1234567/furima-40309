@@ -1,24 +1,39 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users table
+| Column             | Type                | Options                   |
+|--------------------|---------------------|---------------------------|
+| name               | string              | null: false, unique: true |
+| email              | string              |                           |
+| encrypted_password | string              | null: false,              |
 
-Things you may want to cover:
+### Association
+* has_many :items
+* has_many :order
 
-* Ruby version
+# items table
+| Column             | Type                | Options                   |
+|--------------------|---------------------|---------------------------|
+| user               | references          | null: false, foreign_key: true |
+| item_name          | string              | null: false,              |
+| item_explain       | string              | null: false,              |
+| category           | string              | null: false,              |
+| item_explain       | text                | null: false,              |
+| item_status        | text                | null: false,              |
+| shipping_cost      | string              | null: false,              |
+| prefecture         | string              | null: false,              |
+| date               | string              | null: false,              |
+### Association
 
-* System dependencies
+- belongs_to :user
+- has_one :order
 
-* Configuration
+# order table
+| Column             | Type                | Options                   |
+|--------------------|---------------------|---------------------------|
+| user               | references          | null: false,foreign_key: true|
+| item_name          | references          | null: false,foreign_key: true|
 
-* Database creation
+### Association
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- belongs_to :items
+- belongs_to :user

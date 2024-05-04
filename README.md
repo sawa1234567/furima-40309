@@ -30,6 +30,7 @@
 ### Association
 
 - belongs_to :user
+- has_one :order
 - has_many :comments
 
 # orders table
@@ -50,8 +51,8 @@
 | post_code          | string              | null:false                |
 | prefecture_id      | integer             | null:false                |
 | municipality       | string              | null:false                |
-| address            | string              |                           |
-| build              | string              | null:false                |
+| address            | string              | null:false                |
+| build              | string              |                           |
 | phone_number       | string              | null:false,               |
 
 ### Association

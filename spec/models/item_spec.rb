@@ -37,34 +37,34 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Item explain can't be blank")
       end
 
-      it 'categoryが選択されていないと出品できない' do
-        @item.category_id = nil
+      it 'categoryが---が選択されていると出品できない' do
+        @item.category_id = 0 # or 1, depends on your implementation
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category can't be blank")
+        expect(@item.errors.full_messages).to include("Category must be other than 0") # or 1, depends on your implementation
       end
 
       it 'item_statusが選択されていないと出品できない' do
-        @item.item_status_id = nil
+        @item.item_status_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item status can't be blank")
+        expect(@item.errors.full_messages).to include("Item status must be other than 0")
       end
 
       it 'shipping_costが選択されていないと出品できない' do
-        @item.shipping_cost_id = nil
+        @item.shipping_cost_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping cost can't be blank")
+        expect(@item.errors.full_messages).to include("Shipping cost must be other than 0")
       end
 
       it 'prefectureが選択されていないと出品できない' do
-        @item.prefecture_id = nil
+        @item.prefecture_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefecture can't be blank")
+        expect(@item.errors.full_messages).to include("Prefecture must be other than 0")
       end
 
       it 'shipping_dateが選択されていないと出品できない' do
-        @item.shipping_date_id = nil
+        @item.shipping_date_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping date can't be blank")
+        expect(@item.errors.full_messages).to include("Shipping date must be other than 0")
       end
 
       it 'priceが空では出品できない' do

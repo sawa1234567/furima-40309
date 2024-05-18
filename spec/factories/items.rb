@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :item do
+    
     item_name         { Faker::Commerce.product_name }
     item_explain      { Faker::Lorem.sentence(word_count: 10) }
     category_id       { Faker::Number.between(from: 2, to: 10) } 

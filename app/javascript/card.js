@@ -1,4 +1,5 @@
 const pay = () => {
+  console.log("発火");
     const publicKey = gon.public_key
     const payjp = Payjp(publicKey) // PAY.JPテスト公開鍵
   // Payjp.api_key = ENV["PAYJP_PUBLIC_KEY"] 

@@ -1,5 +1,4 @@
 const pay = () => {
-  console.log(gon.your_variable);
     const publicKey = gon.public_key
     const payjp = Payjp(publicKey) // PAY.JPテスト公開鍵
   // Payjp.api_key = ENV["PAYJP_PUBLIC_KEY"] 
@@ -32,4 +31,4 @@ const pay = () => {
   });
 };
 window.addEventListener("turbo:load", pay);
- window.addEventListener("turbo:render", pay);
+window.addEventListener("turbo:render", pay);

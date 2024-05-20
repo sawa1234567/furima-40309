@@ -1,16 +1,15 @@
-window.addEventListener('turbo:load', () => {
+const price =() => {
   const priceInput = document.getElementById("item-price");
-  priceInput.addEventListener("input", () => {
-  const inputValue = priceInput.value;
   const addTaxDom = document.getElementById("add-tax-price");
   const ProfitDom = document.getElementById("profit");
-  // 入力した金額をもとに販売手数料を計算する処理
-  addTaxDom.innerHTML = Math.floor(inputValue * 0.1);
-  // 出品価格から販売手数料を引く処理
-  ProfitDom.innerHTML = Math.floor(inputValue - addTaxDom.innerHTML);
-
-  })
-});
+  priceInput.addEventListener("input", () => {
+    const price =parseInt(priceInput.value);
+    if(price >= 300 && price < 10000000){
+      addTaxDom.innerHTML = Math.floor(price * 0.1);
+      ProfitDom.innerHTML = Math.floor(price - addTaxDom.innerHTML);
+    } 
+  });
+};
 
 window.addEventListener("turbo:load", price);
 window.addEventListener("turbo:render", price);
